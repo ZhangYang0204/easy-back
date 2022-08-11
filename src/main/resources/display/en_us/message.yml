@@ -1,0 +1,81 @@
+message:
+  input:
+    cancel: "取消"
+  chat:
+    failureGetLatestVersion:
+      - "&c&l获得EasyTeleportAsk最新版本失败。"
+    notPermission:
+      - "&c&l您缺少权限 &f{permission}。"
+    correctYaml:
+      - "&b&l已修正所有Yaml文件缺少和多余键值。"
+    help:
+      - "&b&l====帮助列表===="
+      - "&b&l/EasyTeleportAsk help       查看帮助"
+      - "&b&l/EasyTeleportAsk reloadPlugin       重载插件"
+      - "&b&l/EasyTeleportAsk correctYaml       修正Yaml文件"
+      - "&b&l/EasyTeleportAsk openGui       打开Gui"
+      - "&b&l/EasyTeleportAsk openMui <玩家名字>       以指定玩家的身份打开Mui"
+    notifyVersion:
+      - "&b&lEasyTeleportAsk的当前版本是 &f{current_version}，&b&l最新版本是 &f{latest_version}。"
+    enablePlugin:
+      - "&a╭━━━╮╱╱╱╱╱╱╱╱╭━━━━╮╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭╮╭━━━╮╱╱╭╮"
+      - "&a┃╭━━╯╱╱╱╱╱╱╱╱┃╭╮╭╮┃╱┃┃╱╱╱╱╱╱╱╱╱╱╭╯╰┫╭━╮┃╱╱┃┃"
+      - "&a┃╰━━┳━━┳━━┳╮╱┣┫┃┃┣┻━┫┃╭━━┳━━┳━━┳┻╮╭┫┃╱┃┣━━┫┃╭╮"
+      - "&a┃╭━━┫╭╮┃━━┫┃╱┃┃┃┃┃┃━┫┃┃┃━┫╭╮┃╭╮┃╭┫┃┃╰━╯┃━━┫╰╯╯"
+      - "&a┃╰━━┫╭╮┣━━┃╰━╯┃┃┃┃┃━┫╰┫┃━┫╰╯┃╰╯┃┃┃╰┫╭━╮┣━━┃╭╮╮"
+      - "&a╰━━━┻╯╰┻━━┻━╮╭╯╰╯╰━━┻━┻━━┫╭━┻━━┻╯╰━┻╯╱╰┻━━┻╯╰╯"
+    disablePlugin:
+      - "&c╭━━━╮╱╱╱╱╱╱╱╱╭━━━━╮╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭╮╭━━━╮╱╱╭╮"
+      - "&c┃╭━━╯╱╱╱╱╱╱╱╱┃╭╮╭╮┃╱┃┃╱╱╱╱╱╱╱╱╱╱╭╯╰┫╭━╮┃╱╱┃┃"
+      - "&c┃╰━━┳━━┳━━┳╮╱┣┫┃┃┣┻━┫┃╭━━┳━━┳━━┳┻╮╭┫┃╱┃┣━━┫┃╭╮"
+      - "&c┃╭━━┫╭╮┃━━┫┃╱┃┃┃┃┃┃━┫┃┃┃━┫╭╮┃╭╮┃╭┫┃┃╰━╯┃━━┫╰╯╯"
+      - "&c┃╰━━┫╭╮┣━━┃╰━╯┃┃┃┃┃━┫╰┫┃━┫╰╯┃╰╯┃┃┃╰┫╭━╮┣━━┃╭╮╮"
+      - "&c╰━━━┻╯╰┻━━┻━╮╭╯╰╯╰━━┻━┻━━┫╭━┻━━┻╯╰━┻╯╱╰┻━━┻╯╰╯"
+
+    notPlayer:
+      - "&c&l不是玩家不能执行这个操作。"
+    notOnline:
+      - "&c&l目标玩家不在线。"
+    notHookVault:
+      - "&c&l未检测到Vault和基于Vault的经济插件。"
+
+
+
+
+
+
+    howToTeleportAskTo:
+      - "&b&l输入目标玩家的名字，输入 &f取消 &b&l取消。"
+    howToTeleportAskHere:
+      - "&b&l输入目标玩家的名字，输入 &f取消 &b&l取消。"
+
+    tooFastWhenTeleportAskHere:
+      - "&c&l两次传送来申请太快。"
+    notEnoughVaultWhenTeleportAskHere:
+      - "&c&l钱不够，不能申请传送过来。"
+    tooFastWhenTeleportAskTo:
+      - "&c&l两次传送来申请太快。"
+    notEnoughVaultWhenTeleportAskTo:
+      - "&c&l钱不够，不能申请传送过去。"
+    worldBlackListWhenTeleportAskHere:
+      - "&c&l你所在的世界是传送黑名单，无法发送传送来申请。"
+    worldBlackListWhenTeleportAskTo:
+      - "&c&l目标所在的世界是传送黑名单，无法发送传送去申请。"
+
+    teleportAskTo:
+      - "&b&l传送过去的申请已发送。"
+    teleportAskHere:
+      - "&b&l传送过来的申请已发送。"
+    reloadPlugin:
+      - "&b&l成功重载了插件。"
+    cancelTeleportAsk:
+      - "&b&l你取消了传送申请。"
+    acceptTeleportAsk:
+      - "&b&l你接受了传送申请。"
+    denyTeleportAsk:
+      - "&b&l你拒绝了传送申请。"
+
+    notExistTeleportAsk:
+      - "&c&l不存在的申请。"
+
+

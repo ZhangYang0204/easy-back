@@ -1,0 +1,10 @@
+
+daoPackage: []
+listenerPackage:
+  - "pers/zhangyang/easyback/listener"
+executorPackage:
+  - "pers/zhangyang/easyback/executor"
+yamlPackage:
+  - "pers/zhangyang/easyback/yaml"
+guiButtonHandlerPackage:
+  - "pers/zhangyang/easyback/listener"
