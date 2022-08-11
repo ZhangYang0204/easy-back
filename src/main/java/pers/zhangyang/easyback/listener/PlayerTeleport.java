@@ -12,7 +12,7 @@ import pers.zhangyang.easylibrary.annotation.EventListener;
 
 @EventListener
 public class PlayerTeleport implements Listener {
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST,ignoreCancelled = true)
     public void on(PlayerTeleportEvent event){
         Player player=event.getPlayer();
         BackPoint backPoint=new BackPoint(player,event.getFrom(), System.currentTimeMillis());
