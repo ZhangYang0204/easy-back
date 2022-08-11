@@ -46,6 +46,9 @@ message:
     tooFastWhenBackBackPoint:
       - "&c&l两次返回速度太快了。"
 
+    worldBlackListWhenBackBackPoint:
+      - "&c&l目标世界不允许返回"
+
     notExistBackPoint:
       - "&c&l不存在的返回点。"
 
