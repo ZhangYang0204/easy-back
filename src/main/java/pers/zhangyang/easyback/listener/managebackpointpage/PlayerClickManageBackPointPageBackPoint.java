@@ -1,5 +1,6 @@
 package pers.zhangyang.easyback.listener.managebackpointpage;
 
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -59,6 +60,15 @@ public class PlayerClickManageBackPointPageBackPoint implements Listener {
                 MessageUtil.sendMessageTo(viewer, list);
                 return;
             }
+        }
+
+
+        List<String> worldNameBlackList=SettingYaml.INSTANCE.getStringList("setting.worldBlackList");
+        World world=backPoint.getLocation().getWorld();
+        if (world!=null&&worldNameBlackList!=null &&worldNameBlackList.contains(world.getName())){
+            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.worldBlackListWhenBackBackPoint");
+            MessageUtil.sendMessageTo(viewer, list);
+            return;
         }
 
 
