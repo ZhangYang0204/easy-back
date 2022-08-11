@@ -16,6 +16,6 @@ setting:
 
   #发送传送申请需要的Vault金币花费，必须是非负数，否则采用默认值0
   #The Vault gold coin cost required to send the teleport request must be a non negative number, otherwise the default value of 0 is used
-  backCost: 0
+  backBackPointCost: 0
 
 
