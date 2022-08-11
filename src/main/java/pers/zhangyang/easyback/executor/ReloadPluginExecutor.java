@@ -4,6 +4,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import pers.zhangyang.easyback.manager.BackPointManager;
+import pers.zhangyang.easyback.manager.GamerManager;
 import pers.zhangyang.easylibrary.base.ExecutorBase;
 import pers.zhangyang.easylibrary.util.MessageUtil;
 import pers.zhangyang.easylibrary.yaml.MessageYaml;
@@ -21,6 +23,10 @@ public class ReloadPluginExecutor extends ExecutorBase {
             return;
         }
 
+        for (Player p: Bukkit.getOnlinePlayers()){
+            GamerManager.INSTANCE.remove(p);
+        }
+        BackPointManager.INSTANCE.getBackPointList().clear();
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.reloadPlugin");
         MessageUtil.sendMessageTo(this.sender, list);

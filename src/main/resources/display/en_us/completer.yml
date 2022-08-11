@@ -1,7 +1,7 @@
 completer:
 
-  #当输入了/easyTeleportAsk后将提示补全以下内容
-  easyTeleportAsk:
+  #当输入了/easyBack后将提示补全以下内容
+  easyBack:
     - "help"
     - "reloadPlugin"
     - "correctYaml"

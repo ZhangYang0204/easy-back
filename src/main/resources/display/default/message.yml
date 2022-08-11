@@ -38,6 +38,17 @@ message:
     notHookVault:
       - "&c&l未检测到Vault和基于Vault的经济插件。"
 
+    backBackPoint:
+      - "&c&l返回了上个地点。"
+
+    notEnoughVaultWhenBackBackPoint:
+      - "&c&l钱不够，不能申请传送过来。"
+    tooFastWhenBackBackPoint:
+      - "&c&l两次返回速度太快了。"
+
+    notExistBackPoint:
+      - "&c&l不存在的返回点。"
+
 
 
 

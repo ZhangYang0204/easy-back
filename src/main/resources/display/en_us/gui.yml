@@ -1,22 +1,17 @@
 gui:
 
-  replace:
-    teleportAskTo: "传送去"
-    teleportAskHere: "传送来"
-
   #第一个页面的返回按钮点击后执行的指令，格式为 way:command，其中的way指代执行的方式，command是命令，命令无需加/，
   #执行方式有operator、console、player，分别代表以op身份执行（给玩家op然后执行然后取消玩家op）、控制台执行、玩家执行
-  firstPageBackPageCommand:
+  firstPageBackCommand:
     - "player:bs"
     - "player:cd"
 
   title:
-    manageTeleportAskPage: "&b&l&n全部请求&e&l(陈列了所有的传送请求)"
-    manageTeleportAskPageTeleportAskOptionPage: "&b&l&n请求选项&e&l(陈列了所有的选项)"
+    manageBackPointPage: "&b&l&n全部返回点&e&l(陈列了所有的可返回的点)"
 
   button:
-    manageTeleportAskPage:
-      backPage:
+    manageBackPointPage:
+      back:
 
         #表示按钮的材料,想知道材料名字,请前往https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html查看
         #如果是AIR代表不显示相关按钮并且无法被点击
@@ -39,89 +34,40 @@ gui:
         #用哪个模型数据 1.12及以前的版本不支持这个
         customModelData: [ ]
 
-      teleportAskTo:
-        materialName: "DIAMOND"
-        displayName: "&b&l&n传送去"
-        lore:
-          - "&c&l点我申请把自己传送到目标玩家那里去"
-        amount: 1
-        itemFlag:
-          - "HIDE_DESTROYS"
-        customModelData: [ ]
-      teleportAskHere:
-        materialName: "EMERALD"
-        displayName: "&b&l&n传送来"
-        lore:
-          - "&c&l点我申请把目标玩家传送到自己这里来"
-        amount: 1
-        itemFlag:
-          - "HIDE_DESTROYS"
-        customModelData: [ ]
-      teleportAsk:
+      backBackPoint:
         materialName: "CHEST"
-        displayName: "&b&l&n一条传送申请"
+        displayName: "&b&l&n返回返回点"
         lore:
-          - "&a&l传送类型 &f{teleport_ask_type}"
-          - "&b&l&n传送申请 &f{sender_name} &b&l-> &f{target_name}"
-          - "&c&l点我查看详情"
+          - "&a&l世界：{world}"
+          - "&b&l坐标x：{x}"
+          - "&c&l坐标y：{y}"
+          - "&d&l坐标z：{z}"
+          - "&e&l产生时间：{create_time}"
+          - "&f&l点我返回"
         amount: 1
         itemFlag:
           - "HIDE_DESTROYS"
         customModelData: [ ]
 
-    manageTeleportAskPageTeleportAskOptionPage:
-      backPage:
-
-        materialName: "BARRIER"
-        displayName: "&b&l&n返回"
+      previousPage:
+        materialName: "BOOK"
+        displayName: "&b&l&n上一页"
         lore:
-          - "&c&l点我返回上一页"
+          - "&f&l点我前往上一页"
+        amount: 1
+        itemFlag:
+          - "HIDE_DESTROYS"
+        customModelData: [ ]
+      nextPage:
+        materialName: "BOOK"
+        displayName: "&b&l&n下一页"
+        lore:
+          - "&f&l点我前往下一页"
         amount: 1
         itemFlag:
           - "HIDE_DESTROYS"
         customModelData: [ ]
 
-      acceptTeleportAsk:
-        materialName: "DIAMOND"
-        displayName: "&b&l&n同意"
-        lore:
-          - "&c&l点我同意申请"
-        amount: 1
-        itemFlag:
-          - "HIDE_DESTROYS"
-        customModelData: [ ]
-      denyTeleportAsk:
-        materialName: "EMERALD"
-        displayName: "&b&l&n拒绝"
-        lore:
-          - "&c&l点我拒绝申请"
-        amount: 1
-        itemFlag:
-          - "HIDE_DESTROYS"
-        customModelData: [ ]
-      cancelTeleportAsk:
-        materialName: "REDSTONE"
-        displayName: "&b&l&n取消"
-        lore:
-          - "&c&l点我取消申请"
-        amount: 1
-        itemFlag:
-          - "HIDE_DESTROYS"
-        customModelData: [ ]
-      teleportAskInformation:
-        materialName: "PAPER"
-        displayName: "&b&l&n传送申请信息"
-        lore:
-          - "&a&l传送类型 &f{teleport_ask_type}"
-          - "&f{sender_name} &b&l-> &f{target_name}"
-          - "&c&l申请者所在世界 &f{sender_world}"
-          - "&d&l申请者位置x坐标 &f{sender_x}"
-          - "&e&l申请者位置y坐标 &f{sender_y}"
-          - "&f&l申请者位置z坐标 &f{sender_z}"
-        amount: 1
-        itemFlag:
-          - "HIDE_DESTROYS"
-        customModelData: [ ]
 
 
 
