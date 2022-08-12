@@ -9,13 +9,15 @@ setting:
   display: "default"
 
 
-  #哪些世界关闭传送请求，其他世界的玩家无法通过传送申请来到下面的黑名单世界
-  #Which worlds turn off the teleport request, and players from other worlds cannot enter the blacklist world below through the teleport request
+  #哪些世界关闭传送请求，其他世界的玩家无法返回到下面的黑名单世界
+  #Which worlds close the transmission request, and players in other worlds cannot return to the blacklist world below
   worldBlackList:
     - "world_nether"
 
-  #发送传送申请需要的Vault金币花费，必须是非负数，否则采用默认值0
-  #The Vault gold coin cost required to send the teleport request must be a non negative number, otherwise the default value of 0 is used
-  backBackPointCost: 0
+  #发送传送申请需要的Vault金币花费，必须是非负数，如果不填会置空，如果填的不是非负数则会默认为0，如果是整数，请写为小数点形式，例如0写为0.0
+  #The vault gold coin cost required to send the transfer application must be a non negative number
+  #If it is not filled in, it will be left blank. If it is not filled in, it will be 0 by default
+  #If it is an integer, please write it as a decimal point. For example, 0 is written as 0.0
+  backBackPointCost: 0.0
 
 

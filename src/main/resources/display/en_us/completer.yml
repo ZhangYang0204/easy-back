@@ -1,6 +1,6 @@
 completer:
 
-  #当输入了/easyBack后将提示补全以下内容
+  #When you enter /easyBack, you will be prompted to complete the below
   easyBack:
     - "help"
     - "reloadPlugin"

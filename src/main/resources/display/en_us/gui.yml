@@ -1,49 +1,49 @@
 gui:
 
-  #第一个页面的返回按钮点击后执行的指令，格式为 way:command，其中的way指代执行的方式，command是命令，命令无需加/，
-  #执行方式有operator、console、player，分别代表以op身份执行（给玩家op然后执行然后取消玩家op）、控制台执行、玩家执行
+  #The command to be executed after the return button on the first page is clicked. The format is way: command, where way refers to the execution mode, and command is a command. The command does not need to add /
+  #The execution methods are operator, console and player, which respectively represent the execution as op (give the player OP and then execute and then cancel the player OP), console execution and player execution
   firstPageBackCommand:
     - "player:bs"
     - "player:cd"
 
   title:
-    manageBackPointPage: "&b&l&n全部返回点&e&l(陈列了所有的可返回的点)"
+    manageBackPointPage: "&b&l&nAll Back Point&e&l(There are all back point)"
 
   button:
     manageBackPointPage:
       back:
 
-        #表示按钮的材料,想知道材料名字,请前往https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html查看
-        #如果是AIR代表不显示相关按钮并且无法被点击
+        #Represents the material of the button. If you want to know the name of the material, please go to https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html see
+        #If it is air, the representative does not display the relevant button and cannot be clicked
         materialName: "BARRIER"
 
-        #表示按钮的名称
+        #Represents the name of the button
         displayName: "&b&l&n返回"
 
         #表示按钮的描述，lore中可以用的变量，除了{()}括起来的，都可以用在displayName中
         lore:
           - "&c&l点我返回上一页"
 
-        #表示数量
+        #Quantity
         amount: 1
 
-        #表示标志，想知道可以隐藏哪些，请前往https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/ItemFlag.html
+        #Indicates a sign. If you want to know which can be hidden, please go to https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/ItemFlag.html
         itemFlag:
           - "HIDE_DESTROYS"
 
-        #用哪个模型数据 1.12及以前的版本不支持这个
+        #Which model data is used? 1.12 and earlier versions do not support this
         customModelData: [ ]
 
       backBackPoint:
         materialName: "CHEST"
-        displayName: "&b&l&n返回返回点"
+        displayName: "&b&l&nBack back point"
         lore:
-          - "&a&l世界：{world}"
-          - "&b&l坐标x：{x}"
-          - "&c&l坐标y：{y}"
-          - "&d&l坐标z：{z}"
-          - "&e&l产生时间：{create_time}"
-          - "&f&l点我返回"
+          - "&a&lWorld：{world}"
+          - "&b&lX：{x}"
+          - "&c&lY：{y}"
+          - "&d&lZ：{z}"
+          - "&e&lCreate Time：{create_time}"
+          - "&f&lClick me to back"
         amount: 1
         itemFlag:
           - "HIDE_DESTROYS"
@@ -51,18 +51,18 @@ gui:
 
       previousPage:
         materialName: "BOOK"
-        displayName: "&b&l&n上一页"
+        displayName: "&b&l&nPrevious page"
         lore:
-          - "&f&l点我前往上一页"
+          - "&f&lClick me to previous page"
         amount: 1
         itemFlag:
           - "HIDE_DESTROYS"
         customModelData: [ ]
       nextPage:
         materialName: "BOOK"
-        displayName: "&b&l&n下一页"
+        displayName: "&b&l&nNext Page"
         lore:
-          - "&f&l点我前往下一页"
+          - "&f&lClick me to next page"
         amount: 1
         itemFlag:
           - "HIDE_DESTROYS"

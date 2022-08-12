@@ -1,5 +1,5 @@
 name: EasyBack
-version: 1.0.1
+version: 1.0.2
 main: pers.zhangyang.easyback.EasyBack
 api-version: 1.13
 commands:

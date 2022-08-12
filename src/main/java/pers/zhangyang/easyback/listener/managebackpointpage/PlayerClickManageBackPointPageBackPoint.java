@@ -71,19 +71,20 @@ public class PlayerClickManageBackPointPageBackPoint implements Listener {
             return;
         }
 
-
-        if (Vault.hook()==null){
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notHookVault");
-            MessageUtil.sendMessageTo(viewer, list);
-            return;
+        Double cost=SettingYaml.INSTANCE.backCost();
+        if (cost!=null) {
+            if (Vault.hook() == null) {
+                List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notHookVault");
+                MessageUtil.sendMessageTo(viewer, list);
+                return;
+            }
+            if (Vault.hook().getBalance(onlineOwner) < cost) {
+                List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notEnoughVaultWhenBackBackPoint");
+                MessageUtil.sendMessageTo(viewer, list);
+                return;
+            }
+            Vault.hook().withdrawPlayer(onlineOwner, cost);
         }
-        if (Vault.hook().getBalance(onlineOwner)< SettingYaml.INSTANCE.backCost()){
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notEnoughVaultWhenBackBackPoint");
-            MessageUtil.sendMessageTo(viewer, list);
-            return;
-        }
-        Vault.hook().withdrawPlayer(onlineOwner,SettingYaml.INSTANCE.backCost());
-
 
 
         viewer.teleport(backPoint.getLocation());
