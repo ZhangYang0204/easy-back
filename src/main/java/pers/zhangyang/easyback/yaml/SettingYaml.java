@@ -13,19 +13,13 @@ public class SettingYaml extends YamlBase {
     @NotNull
     public String getDisplay() {
         String display = getStringDefault("setting.display");
-        if(pers.zhangyang.easylibrary.yaml.SettingYaml.class.getClassLoader().getResource("display/"+display)==null){
+        if(SettingYaml.class.getClassLoader().getResource("display/"+display)==null){
             display = backUpConfiguration.getString("setting.display");
         }
         assert display != null;
         return display;
     }
 
-    public Double backCost() {
-        Double display = getDouble("setting.backBackPointCost");
-        if (display!=null&&display<0){
-            display=0.0;
-        }
-        return display;
-    }
+
 
 }

@@ -12,6 +12,7 @@ import pers.zhangyang.easyback.yaml.GuiYaml;
 import pers.zhangyang.easylibrary.base.BackAble;
 import pers.zhangyang.easylibrary.base.GuiPage;
 import pers.zhangyang.easylibrary.base.MultipleGuiPageBase;
+import pers.zhangyang.easylibrary.util.CommandUtil;
 import pers.zhangyang.easylibrary.util.PageUtil;
 import pers.zhangyang.easylibrary.util.ReplaceUtil;
 import pers.zhangyang.easylibrary.util.TimeUtil;
@@ -33,23 +34,7 @@ public class ManageBackPointPage extends MultipleGuiPageBase implements BackAble
         if (cmdList==null){
             return;
         }
-        for (String s:cmdList){
-            String[] args=s.split(":");
-            if (args.length!=2){
-                continue;
-            }
-            String way=args[0];
-            String command=args[1];
-            if ("console".equalsIgnoreCase(way)){
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(),command);
-            }else if ("player".equalsIgnoreCase(way)){
-                Bukkit.dispatchCommand(viewer,command);
-            }else if ("operator".equalsIgnoreCase(way)){
-                viewer.setOp(true);
-                Bukkit.dispatchCommand(viewer,command);
-                viewer.setOp(false);
-            }
-        }
+        CommandUtil.dispatchCommandList(viewer,cmdList);
     }
 
     @Override
@@ -77,7 +62,7 @@ public class ManageBackPointPage extends MultipleGuiPageBase implements BackAble
                 break;
             }
 
-            ItemStack itemStack=GuiYaml.INSTANCE.getButton("gui.button.manageBackPointPage.backBackPoint");
+            ItemStack itemStack=GuiYaml.INSTANCE.getButtonDefault("gui.button.manageBackPointPage.backBackPoint");
             BackPoint ask=backPointList.get(i);
             HashMap<String,String> rep=new HashMap<>();
             World world=ask.getLocation().getWorld();
@@ -100,14 +85,14 @@ public class ManageBackPointPage extends MultipleGuiPageBase implements BackAble
 
 
 
-        ItemStack returnPage= GuiYaml.INSTANCE.getButton("gui.button.manageBackPointPage.back");
+        ItemStack returnPage= GuiYaml.INSTANCE.getButtonDefault("gui.button.manageBackPointPage.back");
         this.inventory.setItem(49,returnPage);
 
 
 
 
         if (pageIndex > 0) {
-            ItemStack previous = GuiYaml.INSTANCE.getButton("gui.button.manageBackPointPage.previousPage");
+            ItemStack previous = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageBackPointPage.previousPage");
             inventory.setItem(45, previous);
         }
         int maxIndex = PageUtil.computeMaxPageIndex(BackPointManager.INSTANCE.getBackPointList(onlineOwner).size(), 45);
@@ -115,7 +100,7 @@ public class ManageBackPointPage extends MultipleGuiPageBase implements BackAble
             this.pageIndex = maxIndex;
         }
         if (pageIndex < maxIndex) {
-            ItemStack next = GuiYaml.INSTANCE.getButton("gui.button.manageBackPointPage.nextPage");
+            ItemStack next = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageBackPointPage.nextPage");
             inventory.setItem(53, next);
         }
 

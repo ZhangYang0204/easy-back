@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import pers.zhangyang.easyback.domain.ManageBackPointPage;
 import pers.zhangyang.easylibrary.base.ExecutorBase;
 import pers.zhangyang.easylibrary.util.MessageUtil;
-import pers.zhangyang.easylibrary.yaml.MessageYaml;
+import pers.zhangyang.easyback.yaml.MessageYaml;
 
 import java.util.List;
 

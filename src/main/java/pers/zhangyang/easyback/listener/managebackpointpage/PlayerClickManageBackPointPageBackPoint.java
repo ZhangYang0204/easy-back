@@ -16,7 +16,7 @@ import pers.zhangyang.easylibrary.annotation.GuiSerialButtonHandler;
 import pers.zhangyang.easylibrary.other.vault.Vault;
 import pers.zhangyang.easylibrary.util.MessageUtil;
 import pers.zhangyang.easylibrary.util.PermUtil;
-import pers.zhangyang.easylibrary.yaml.MessageYaml;
+import pers.zhangyang.easyback.yaml.MessageYaml;
 
 import java.util.List;
 
@@ -71,7 +71,7 @@ public class PlayerClickManageBackPointPageBackPoint implements Listener {
             return;
         }
 
-        Double cost=SettingYaml.INSTANCE.backCost();
+        Double cost=SettingYaml.INSTANCE.getNonnegativeDouble("setting.backBackPointCost");
         if (cost!=null) {
             if (Vault.hook() == null) {
                 List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notHookVault");
