@@ -44,6 +44,7 @@ public class PlayerClickManageBackPointPageBackPoint implements Listener {
         if (onlineOwner==null){
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notOnline");
             MessageUtil.sendMessageTo(viewer, list);
+            manageBackPointPage.refresh();
             return;
         }
 
