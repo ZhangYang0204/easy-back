@@ -18,6 +18,6 @@ setting:
   #The vault gold coin cost required to send the transfer application must be a non negative number
   #If it is not filled in, it will be left blank. If it is not filled in, it will be 0 by default
   #If it is an integer, please write it as a decimal point. For example, 0 is written as 0.0
-  backBackPointCost: 0.0
+  teleportBackPointCost: 0.0
 
 

@@ -40,15 +40,15 @@ message:
     notHookVault:
       - "&c&lNo vault and vault based economic plugin were detected."
 
-    backBackPoint:
+    teleportBackPoint:
       - "&c&lYou back back point successfully"
 
-    notEnoughVaultWhenBackBackPoint:
+    notEnoughVaultWhenTeleportBackPoint:
       - "&c&lMoney not enough"
-    tooFastWhenBackBackPoint:
+    tooFastWhenTeleportBackPoint:
       - "&c&lTwo back operation are too fast."
 
-    worldBlackListWhenBackBackPoint:
+    worldBlackListWhenTeleportBackPoint:
       - "&c&lThe target world is not allowed to back"
 
     notExistBackPoint:

@@ -62,7 +62,7 @@ public class ManageBackPointPage extends MultipleGuiPageBase implements BackAble
                 break;
             }
 
-            ItemStack itemStack=GuiYaml.INSTANCE.getButtonDefault("gui.button.manageBackPointPage.backBackPoint");
+            ItemStack itemStack=GuiYaml.INSTANCE.getButtonDefault("gui.button.manageBackPointPage.teleportBackPoint");
             BackPoint ask=backPointList.get(i);
             HashMap<String,String> rep=new HashMap<>();
             World world=ask.getLocation().getWorld();

@@ -11,7 +11,6 @@ import pers.zhangyang.easyback.manager.BackPointManager;
 import pers.zhangyang.easyback.manager.GamerManager;
 import pers.zhangyang.easyback.yaml.SettingYaml;
 import pers.zhangyang.easylibrary.annotation.EventListener;
-import pers.zhangyang.easylibrary.annotation.GuiDiscreteButtonHandler;
 import pers.zhangyang.easylibrary.annotation.GuiSerialButtonHandler;
 import pers.zhangyang.easylibrary.other.vault.Vault;
 import pers.zhangyang.easylibrary.util.MessageUtil;
@@ -21,7 +20,7 @@ import pers.zhangyang.easyback.yaml.MessageYaml;
 import java.util.List;
 
 @EventListener
-public class PlayerClickManageBackPointPageBackPoint implements Listener {
+public class PlayerClickManageBackPointPageTeleportBackPoint implements Listener {
     @GuiSerialButtonHandler(guiPage = ManageBackPointPage.class,from = 0,to = 44)
     public void on(InventoryClickEvent event){
 
@@ -48,7 +47,7 @@ public class PlayerClickManageBackPointPageBackPoint implements Listener {
         }
 
         if (!onlineOwner.isOp()) {
-            Integer perm = PermUtil.getMinNumberPerm("EasyBack.backBackPointInterval.", onlineOwner);
+            Integer perm = PermUtil.getMinNumberPerm("EasyBack.teleportBackPointInterval.", onlineOwner);
             if (perm == null) {
                 perm = 0;
             }
@@ -56,7 +55,7 @@ public class PlayerClickManageBackPointPageBackPoint implements Listener {
             if (gamer.getLastBackTime() != null && System.currentTimeMillis() - gamer.getLastBackTime()
                     < perm * 1000L) {
 
-                List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.tooFastWhenBackBackPoint");
+                List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.tooFastWhenTeleportBackPoint");
                 MessageUtil.sendMessageTo(viewer, list);
                 return;
             }
@@ -71,7 +70,7 @@ public class PlayerClickManageBackPointPageBackPoint implements Listener {
             return;
         }
 
-        Double cost=SettingYaml.INSTANCE.getNonnegativeDouble("setting.backBackPointCost");
+        Double cost=SettingYaml.INSTANCE.getNonnegativeDouble("setting.teleportBackPointCost");
         if (cost!=null) {
             if (Vault.hook() == null) {
                 List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notHookVault");
@@ -79,7 +78,7 @@ public class PlayerClickManageBackPointPageBackPoint implements Listener {
                 return;
             }
             if (Vault.hook().getBalance(onlineOwner) < cost) {
-                List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notEnoughVaultWhenBackBackPoint");
+                List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notEnoughVaultWhenTeleportBackPoint");
                 MessageUtil.sendMessageTo(viewer, list);
                 return;
             }
@@ -93,7 +92,7 @@ public class PlayerClickManageBackPointPageBackPoint implements Listener {
 
         manageBackPointPage.refresh();
 
-        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.backBackPoint");
+        List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.teleportBackPoint");
         MessageUtil.sendMessageTo(viewer, list);
 
 

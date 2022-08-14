@@ -40,12 +40,12 @@ message:
     notHookVault:
       - "&c&l未检测到Vault和基于Vault的经济插件。"
 
-    backBackPoint:
+    teleportBackPoint:
       - "&c&l返回了上个地点。"
 
-    notEnoughVaultWhenBackBackPoint:
+    notEnoughVaultWhenTeleportBackPoint:
       - "&c&l钱不够，不能申请传送过来。"
-    tooFastWhenBackBackPoint:
+    tooFastWhenTeleportBackPoint:
       - "&c&l两次返回速度太快了。"
 
     worldBlackListWhenBackBackPoint:

@@ -34,7 +34,7 @@ gui:
         #用哪个模型数据 1.12及以前的版本不支持这个
         customModelData: [ ]
 
-      backBackPoint:
+      teleportBackPoint:
         materialName: "CHEST"
         displayName: "&b&l&n返回返回点"
         lore:

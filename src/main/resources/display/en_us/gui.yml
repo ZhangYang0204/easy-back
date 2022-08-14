@@ -34,7 +34,7 @@ gui:
         #Which model data is used? 1.12 and earlier versions do not support this
         customModelData: [ ]
 
-      backBackPoint:
+      teleportBackPoint:
         materialName: "CHEST"
         displayName: "&b&l&nBack back point"
         lore:
