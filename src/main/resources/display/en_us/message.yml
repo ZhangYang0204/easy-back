@@ -43,9 +43,9 @@ message:
     teleportBackPoint:
       - "&c&lYou back back point successfully"
 
-    notEnoughVaultWhenTeleportBackPoint:
+    notEnoughVault:
       - "&c&lMoney not enough"
-    tooFastWhenTeleportBackPoint:
+    tooFastWhen:
       - "&c&lTwo back operation are too fast."
 
     worldBlackListWhenTeleportBackPoint:

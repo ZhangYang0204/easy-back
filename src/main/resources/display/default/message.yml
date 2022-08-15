@@ -43,12 +43,12 @@ message:
     teleportBackPoint:
       - "&c&l返回了上个地点。"
 
-    notEnoughVaultWhenTeleportBackPoint:
+    notEnoughVault:
       - "&c&l钱不够，不能申请传送过来。"
-    tooFastWhenTeleportBackPoint:
+    tooFastWhen:
       - "&c&l两次返回速度太快了。"
 
-    worldBlackListWhenBackBackPoint:
+    worldBlackList:
       - "&c&l目标世界不允许返回"
 
     notExistBackPoint:

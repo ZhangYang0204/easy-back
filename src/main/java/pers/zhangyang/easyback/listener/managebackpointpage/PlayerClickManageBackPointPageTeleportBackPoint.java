@@ -55,7 +55,7 @@ public class PlayerClickManageBackPointPageTeleportBackPoint implements Listener
             if (gamer.getLastBackTime() != null && System.currentTimeMillis() - gamer.getLastBackTime()
                     < perm * 1000L) {
 
-                List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.tooFastWhenTeleportBackPoint");
+                List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.tooFastWhen");
                 MessageUtil.sendMessageTo(viewer, list);
                 return;
             }
@@ -65,7 +65,7 @@ public class PlayerClickManageBackPointPageTeleportBackPoint implements Listener
         List<String> worldNameBlackList=SettingYaml.INSTANCE.getStringList("setting.worldBlackList");
         World world=backPoint.getLocation().getWorld();
         if (world!=null&&worldNameBlackList!=null &&worldNameBlackList.contains(world.getName())){
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.worldBlackListWhenBackBackPoint");
+            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.worldBlackList");
             MessageUtil.sendMessageTo(viewer, list);
             return;
         }
@@ -78,7 +78,7 @@ public class PlayerClickManageBackPointPageTeleportBackPoint implements Listener
                 return;
             }
             if (Vault.hook().getBalance(onlineOwner) < cost) {
-                List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notEnoughVaultWhenTeleportBackPoint");
+                List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notEnoughVault");
                 MessageUtil.sendMessageTo(viewer, list);
                 return;
             }
