@@ -5,9 +5,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import pers.zhangyang.easyback.domain.ManageBackPointPage;
+import pers.zhangyang.easyback.yaml.MessageYaml;
 import pers.zhangyang.easylibrary.base.ExecutorBase;
 import pers.zhangyang.easylibrary.util.MessageUtil;
-import pers.zhangyang.easyback.yaml.MessageYaml;
 
 import java.util.List;
 
@@ -18,21 +18,21 @@ public class OpenMuiExecutor extends ExecutorBase {
 
     @Override
     protected void run() {
-        if (args.length!=1){
+        if (args.length != 1) {
             return;
         }
-        if (!(sender instanceof Player)){
+        if (!(sender instanceof Player)) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notPlayer");
             MessageUtil.sendMessageTo(this.sender, list);
             return;
         }
         Player player = (Player) sender;
         Player target = Bukkit.getPlayer(args[0]);
-        if (target==null){
+        if (target == null) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notOnline");
             MessageUtil.sendMessageTo(this.sender, list);
             return;
         }
-        new ManageBackPointPage(player,null,target).send();
+        new ManageBackPointPage(player, null, target).send();
     }
 }

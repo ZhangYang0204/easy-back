@@ -8,7 +8,7 @@ public class EasyBack extends EasyPlugin {
     public void onOpen() {
 
         // bStats统计信息
-        new Metrics(EasyBack.instance,16092);
+        new Metrics(EasyBack.instance, 16092);
     }
 
     @Override

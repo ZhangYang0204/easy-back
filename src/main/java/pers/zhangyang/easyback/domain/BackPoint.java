@@ -4,9 +4,9 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 public class BackPoint {
-    private Player player;
-    private Location location;
-    private long time;
+    private final Player player;
+    private final Location location;
+    private final long time;
 
 
     public BackPoint(Player player, Location location, long time) {

@@ -9,38 +9,38 @@ import pers.zhangyang.easyback.domain.Gamer;
 import pers.zhangyang.easyback.domain.ManageBackPointPage;
 import pers.zhangyang.easyback.manager.BackPointManager;
 import pers.zhangyang.easyback.manager.GamerManager;
+import pers.zhangyang.easyback.yaml.MessageYaml;
 import pers.zhangyang.easyback.yaml.SettingYaml;
 import pers.zhangyang.easylibrary.annotation.EventListener;
 import pers.zhangyang.easylibrary.annotation.GuiSerialButtonHandler;
 import pers.zhangyang.easylibrary.other.vault.Vault;
 import pers.zhangyang.easylibrary.util.MessageUtil;
 import pers.zhangyang.easylibrary.util.PermUtil;
-import pers.zhangyang.easyback.yaml.MessageYaml;
 
 import java.util.List;
 
 @EventListener
 public class PlayerClickManageBackPointPageTeleportBackPoint implements Listener {
-    @GuiSerialButtonHandler(guiPage = ManageBackPointPage.class,from = 0,to = 44)
-    public void on(InventoryClickEvent event){
+    @GuiSerialButtonHandler(guiPage = ManageBackPointPage.class, from = 0, to = 44)
+    public void on(InventoryClickEvent event) {
 
-        ManageBackPointPage manageBackPointPage= (ManageBackPointPage) event.getInventory().getHolder();
+        ManageBackPointPage manageBackPointPage = (ManageBackPointPage) event.getInventory().getHolder();
 
-        int slot=event.getRawSlot();
+        int slot = event.getRawSlot();
 
-        Player viewer= (Player) event.getWhoClicked();
+        Player viewer = (Player) event.getWhoClicked();
 
         assert manageBackPointPage != null;
 
-        BackPoint backPoint=manageBackPointPage.getBackPointList().get(slot);
-        if (!BackPointManager.INSTANCE.getBackPointList().contains(backPoint)){
+        BackPoint backPoint = manageBackPointPage.getBackPointList().get(slot);
+        if (!BackPointManager.INSTANCE.getBackPointList().contains(backPoint)) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistBackPoint");
             MessageUtil.sendMessageTo(viewer, list);
             manageBackPointPage.refresh();
             return;
         }
-        Player onlineOwner=manageBackPointPage.getOwner().getPlayer();
-        if (onlineOwner==null){
+        Player onlineOwner = manageBackPointPage.getOwner().getPlayer();
+        if (onlineOwner == null) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notOnline");
             MessageUtil.sendMessageTo(viewer, list);
             return;
@@ -51,7 +51,7 @@ public class PlayerClickManageBackPointPageTeleportBackPoint implements Listener
             if (perm == null) {
                 perm = 0;
             }
-            Gamer gamer= GamerManager.INSTANCE.getGamer(onlineOwner);
+            Gamer gamer = GamerManager.INSTANCE.getGamer(onlineOwner);
             if (gamer.getLastBackTime() != null && System.currentTimeMillis() - gamer.getLastBackTime()
                     < perm * 1000L) {
 
@@ -62,16 +62,16 @@ public class PlayerClickManageBackPointPageTeleportBackPoint implements Listener
         }
 
 
-        List<String> worldNameBlackList=SettingYaml.INSTANCE.getStringList("setting.worldBlackList");
-        World world=backPoint.getLocation().getWorld();
-        if (world!=null&&worldNameBlackList!=null &&worldNameBlackList.contains(world.getName())){
+        List<String> worldNameBlackList = SettingYaml.INSTANCE.getStringList("setting.worldBlackList");
+        World world = backPoint.getLocation().getWorld();
+        if (world != null && worldNameBlackList != null && worldNameBlackList.contains(world.getName())) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.worldBlackList");
             MessageUtil.sendMessageTo(viewer, list);
             return;
         }
 
-        Double cost=SettingYaml.INSTANCE.getNonnegativeDouble("setting.teleportBackPointCost");
-        if (cost!=null) {
+        Double cost = SettingYaml.INSTANCE.getNonnegativeDouble("setting.teleportBackPointCost");
+        if (cost != null) {
             if (Vault.hook() == null) {
                 List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notHookVault");
                 MessageUtil.sendMessageTo(viewer, list);
@@ -87,7 +87,7 @@ public class PlayerClickManageBackPointPageTeleportBackPoint implements Listener
 
 
         viewer.teleport(backPoint.getLocation());
-        Gamer gamer= GamerManager.INSTANCE.getGamer(onlineOwner);
+        Gamer gamer = GamerManager.INSTANCE.getGamer(onlineOwner);
         gamer.setLastBackTime(System.currentTimeMillis());
 
         manageBackPointPage.refresh();

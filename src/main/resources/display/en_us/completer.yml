@@ -7,3 +7,5 @@ completer:
     - "correctYaml"
     - "openGui"
     - "openMui"
+  easyBackOpenMui:
+    - "<player name>"

@@ -7,3 +7,5 @@ completer:
     - "correctYaml"
     - "openGui"
     - "openMui"
+  easyBackOpenMui:
+    - "<玩家名字>"

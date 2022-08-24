@@ -12,9 +12,9 @@ import pers.zhangyang.easylibrary.annotation.EventListener;
 public class PlayerDeath implements Listener {
 
     @EventHandler
-    public void on(PlayerDeathEvent event){
-        Player player=event.getEntity();
-        BackPoint backPoint=new BackPoint(player,event.getEntity().getLocation(), System.currentTimeMillis());
+    public void on(PlayerDeathEvent event) {
+        Player player = event.getEntity();
+        BackPoint backPoint = new BackPoint(player, event.getEntity().getLocation(), System.currentTimeMillis());
         BackPointManager.INSTANCE.addBackPoint(backPoint);
     }
 

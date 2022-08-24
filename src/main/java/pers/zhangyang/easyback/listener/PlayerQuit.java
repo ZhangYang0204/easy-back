@@ -12,8 +12,8 @@ import pers.zhangyang.easylibrary.annotation.EventListener;
 public class PlayerQuit implements Listener {
 
     @EventHandler
-    public void on(PlayerQuitEvent event){
-        Player player=event.getPlayer();
+    public void on(PlayerQuitEvent event) {
+        Player player = event.getPlayer();
         GamerManager.INSTANCE.remove(player);
         BackPointManager.INSTANCE.remove(player);
     }

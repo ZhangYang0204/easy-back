@@ -1,5 +1,5 @@
 name: EasyBack
-version: 1.0.3
+version: 1.1.0
 main: pers.zhangyang.easyback.EasyBack
 api-version: 1.13
 commands:
@@ -7,3 +7,4 @@ commands:
     aliases: eb
 softdepend:
   - Vault
+  - PlaceholderAPI

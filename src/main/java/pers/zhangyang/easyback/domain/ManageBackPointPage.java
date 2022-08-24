@@ -1,6 +1,5 @@
 package pers.zhangyang.easyback.domain;
 
-import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -23,52 +22,58 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ManageBackPointPage extends MultipleGuiPageBase implements BackAble {
-    public ManageBackPointPage( @NotNull Player viewer, @Nullable GuiPage backPage, OfflinePlayer owner) {
-        super(GuiYaml.INSTANCE.getString("gui.title.manageBackPointPage"), viewer, backPage, owner);
+    private List<BackPoint> backPointList;
+
+    public ManageBackPointPage(@NotNull Player viewer, @Nullable GuiPage backPage, OfflinePlayer owner) {
+        super(GuiYaml.INSTANCE.getString("gui.title.manageBackPointPage"), viewer, backPage, owner, 54);
     }
 
-    private List<BackPoint> backPointList;
     @Override
     public void back() {
-        List<String> cmdList= GuiYaml.INSTANCE.getStringList("gui.firstPageBackCommand");
-        if (cmdList==null){
+        List<String> cmdList = GuiYaml.INSTANCE.getStringList("gui.firstPageBackCommand");
+        if (cmdList == null) {
             return;
         }
-        CommandUtil.dispatchCommandList(viewer,cmdList);
+        CommandUtil.dispatchCommandList(viewer, cmdList);
+    }
+
+    @Override
+    public int getBackSlot() {
+        return 49;
     }
 
     @Override
     public void send() {
-        this.pageIndex=0;
+        this.pageIndex = 0;
         refresh();
     }
 
     @Override
     public void refresh() {
 
-        Player onlineOwner=owner.getPlayer();
-        if (onlineOwner==null){
+        Player onlineOwner = owner.getPlayer();
+        if (onlineOwner == null) {
             back();
             return;
         }
 
         this.inventory.clear();
-        List<BackPoint> backPointList=new ArrayList<>(BackPointManager.INSTANCE.getBackPointList(onlineOwner));
+        List<BackPoint> backPointList = new ArrayList<>(BackPointManager.INSTANCE.getBackPointList(onlineOwner));
         Collections.reverse(backPointList);
-        this.backPointList= PageUtil.page(this.pageIndex,45,backPointList );
+        this.backPointList = PageUtil.page(this.pageIndex, 45, backPointList);
 
-        for (int i=0;i<45;i++){
+        for (int i = 0; i < 45; i++) {
             if (i >= backPointList.size()) {
                 break;
             }
 
-            ItemStack itemStack=GuiYaml.INSTANCE.getButtonDefault("gui.button.manageBackPointPage.teleportBackPoint");
-            BackPoint ask=backPointList.get(i);
-            HashMap<String,String> rep=new HashMap<>();
-            World world=ask.getLocation().getWorld();
-            if (world==null) {
+            ItemStack itemStack = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageBackPointPage.teleportBackPoint");
+            BackPoint ask = backPointList.get(i);
+            HashMap<String, String> rep = new HashMap<>();
+            World world = ask.getLocation().getWorld();
+            if (world == null) {
                 rep.put("{world}", "/");
-            }else {
+            } else {
                 rep.put("{world}", ask.getLocation().getWorld().getName());
             }
             rep.put("{x}", String.valueOf(ask.getLocation().getX()));
@@ -76,19 +81,15 @@ public class ManageBackPointPage extends MultipleGuiPageBase implements BackAble
             rep.put("{z}", String.valueOf(ask.getLocation().getZ()));
             rep.put("{create_time}", TimeUtil.getTimeFromTimeMill(ask.getTime()));
 
-            ReplaceUtil.replaceDisplayName(itemStack,rep);
-            ReplaceUtil.replaceLore(itemStack,rep);
+            ReplaceUtil.replaceDisplayName(itemStack, rep);
+            ReplaceUtil.replaceLore(itemStack, rep);
 
-            this.inventory.setItem(i,itemStack);
+            this.inventory.setItem(i, itemStack);
         }
 
 
-
-
-        ItemStack returnPage= GuiYaml.INSTANCE.getButtonDefault("gui.button.manageBackPointPage.back");
-        this.inventory.setItem(49,returnPage);
-
-
+        ItemStack returnPage = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageBackPointPage.back");
+        this.inventory.setItem(49, returnPage);
 
 
         if (pageIndex > 0) {
@@ -105,6 +106,16 @@ public class ManageBackPointPage extends MultipleGuiPageBase implements BackAble
         }
 
         viewer.openInventory(this.inventory);
+    }
+
+    @Override
+    public int getPreviousPageSlot() {
+        return 45;
+    }
+
+    @Override
+    public int getNextPageSlot() {
+        return 53;
     }
 
     public List<BackPoint> getBackPointList() {
