@@ -10,7 +10,7 @@ import pers.zhangyang.easylibrary.annotation.GuiDiscreteButtonHandler;
 @EventListener
 public class PlayerClickManageBackPointPageSearchByWorldName implements Listener {
 
-    @GuiDiscreteButtonHandler(guiPage = ManageBackPointPage.class,closeGui = true,slot = {47})
+    @GuiDiscreteButtonHandler(guiPage = ManageBackPointPage.class,closeGui = true,slot = {47},refreshGui = false)
     public void on(InventoryClickEvent event){
 
         ManageBackPointPage allGoodPage = (ManageBackPointPage) event.getInventory().getHolder();
