@@ -21,7 +21,7 @@ import java.util.List;
 
 @EventListener
 public class PlayerClickManageBackPointPageTeleportBackPoint implements Listener {
-    @GuiSerialButtonHandler(guiPage = ManageBackPointPage.class, from = 0, to = 44,closeGui = true,refreshGui = true)
+    @GuiSerialButtonHandler(guiPage = ManageBackPointPage.class, from = 0, to = 44,closeGui = true,refreshGui = false)
     public void on(InventoryClickEvent event) {
 
         ManageBackPointPage manageBackPointPage = (ManageBackPointPage) event.getInventory().getHolder();
