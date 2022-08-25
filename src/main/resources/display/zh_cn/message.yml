@@ -1,4 +1,10 @@
 message:
+
+  #不可以是”“也不可以不填，否则默认值
+  input:
+    cancel: "取消"
+
+  #下面支持Papi变量
   chat:
     failureGetLatestVersion:
       - "&c&l获得EasyBack最新版本失败。"
@@ -47,11 +53,15 @@ message:
       - "&c&l钱不够，不能申请传送过来。"
     tooFastWhen:
       - "&c&l两次返回速度太快了。"
+
     worldBlackList:
       - "&c&l目标世界不允许返回"
 
     notExistBackPoint:
       - "&c&l不存在的返回点。"
+
+    howToSearchByWorldName:
+      - "&b&l输入世界的名字搜索，输入 &f取消 &B&l取消"
 
 
 

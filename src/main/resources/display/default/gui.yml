@@ -67,6 +67,15 @@ gui:
         itemFlag:
           - "HIDE_DESTROYS"
         customModelData: [ ]
+      searchByWorldName:
+        materialName: "COMPASS"
+        displayName: "&b&l&n根据世界搜索"
+        lore:
+          - "&f&l点我搜索在指定世界的返回点"
+        amount: 1
+        itemFlag:
+          - "HIDE_DESTROYS"
+        customModelData: [ ]
 
 
 

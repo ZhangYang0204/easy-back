@@ -1,4 +1,10 @@
 message:
+
+  # can not be "" or not filled, otherwise the default value
+  input:
+    cancel: "cancel"
+
+  #The following Papi variables are supported
   chat:
     failureGetLatestVersion:
       - "&c&lFailure get the latest version of EasyBack."
@@ -55,6 +61,8 @@ message:
       - "&c&lNot existent back point."
 
 
+    howToSearchByWorldName:
+      - "&b&l enter the name of the world to search, enter &f to cancel &B&l to cancel"
 
 
 

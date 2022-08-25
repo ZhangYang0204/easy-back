@@ -21,7 +21,7 @@ import java.util.List;
 
 @EventListener
 public class PlayerClickManageBackPointPageTeleportBackPoint implements Listener {
-    @GuiSerialButtonHandler(guiPage = ManageBackPointPage.class, from = 0, to = 44)
+    @GuiSerialButtonHandler(guiPage = ManageBackPointPage.class, from = 0, to = 44,closeGui = true)
     public void on(InventoryClickEvent event) {
 
         ManageBackPointPage manageBackPointPage = (ManageBackPointPage) event.getInventory().getHolder();
@@ -36,7 +36,6 @@ public class PlayerClickManageBackPointPageTeleportBackPoint implements Listener
         if (!BackPointManager.INSTANCE.getBackPointList().contains(backPoint)) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistBackPoint");
             MessageUtil.sendMessageTo(viewer, list);
-            manageBackPointPage.refresh();
             return;
         }
         Player onlineOwner = manageBackPointPage.getOwner().getPlayer();
@@ -85,12 +84,9 @@ public class PlayerClickManageBackPointPageTeleportBackPoint implements Listener
             Vault.hook().withdrawPlayer(onlineOwner, cost);
         }
 
-
         viewer.teleport(backPoint.getLocation());
         Gamer gamer = GamerManager.INSTANCE.getGamer(onlineOwner);
         gamer.setLastBackTime(System.currentTimeMillis());
-
-        manageBackPointPage.refresh();
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.teleportBackPoint");
         MessageUtil.sendMessageTo(viewer, list);

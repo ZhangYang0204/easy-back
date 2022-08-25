@@ -67,6 +67,15 @@ gui:
         itemFlag:
           - "HIDE_DESTROYS"
         customModelData: [ ]
+      searchByWorldName:
+        materialName: "COMPASS"
+        displayName: "&b&l&nsearch by world name"
+        lore:
+          - "&f&lclick me to search by world name"
+        amount: 1
+        itemFlag:
+          - "HIDE_DESTROYS"
+        customModelData: [ ]
 
 
 

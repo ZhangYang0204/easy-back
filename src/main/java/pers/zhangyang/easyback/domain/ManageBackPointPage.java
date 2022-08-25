@@ -6,28 +6,31 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import pers.zhangyang.easyback.enumeration.ManageBackPointPageStatsEnum;
 import pers.zhangyang.easyback.manager.BackPointManager;
 import pers.zhangyang.easyback.yaml.GuiYaml;
 import pers.zhangyang.easylibrary.base.BackAble;
 import pers.zhangyang.easylibrary.base.GuiPage;
 import pers.zhangyang.easylibrary.base.MultipleGuiPageBase;
-import pers.zhangyang.easylibrary.util.CommandUtil;
-import pers.zhangyang.easylibrary.util.PageUtil;
-import pers.zhangyang.easylibrary.util.ReplaceUtil;
-import pers.zhangyang.easylibrary.util.TimeUtil;
+import pers.zhangyang.easylibrary.util.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class ManageBackPointPage extends MultipleGuiPageBase implements BackAble {
     private List<BackPoint> backPointList;
 
+    String searchWorldName;
+    ManageBackPointPageStatsEnum stats;
+
     public ManageBackPointPage(@NotNull Player viewer, @Nullable GuiPage backPage, OfflinePlayer owner) {
         super(GuiYaml.INSTANCE.getString("gui.title.manageBackPointPage"), viewer, backPage, owner, 54);
     }
-
+    public void searchByWorldName(@NotNull String name) {
+        this.stats = ManageBackPointPageStatsEnum.SEARCH_WORLD_NAME;
+        this.searchWorldName = name;
+        this.pageIndex = 0;
+        refresh();
+    }
     @Override
     public void back() {
         List<String> cmdList = GuiYaml.INSTANCE.getStringList("gui.firstPageBackCommand");
@@ -44,6 +47,9 @@ public class ManageBackPointPage extends MultipleGuiPageBase implements BackAble
 
     @Override
     public void send() {
+
+        this.stats = ManageBackPointPageStatsEnum.NORMAL;
+        this.searchWorldName = null;
         this.pageIndex = 0;
         refresh();
     }
@@ -58,8 +64,13 @@ public class ManageBackPointPage extends MultipleGuiPageBase implements BackAble
         }
 
         this.inventory.clear();
+
         List<BackPoint> backPointList = new ArrayList<>(BackPointManager.INSTANCE.getBackPointList(onlineOwner));
         Collections.reverse(backPointList);
+
+        if (stats.equals(ManageBackPointPageStatsEnum.SEARCH_WORLD_NAME)){
+            backPointList.removeIf(backPoint -> !Objects.requireNonNull(backPoint.getLocation().getWorld()).getName().contains(searchWorldName));
+        }
         this.backPointList = PageUtil.page(this.pageIndex, 45, backPointList);
 
         for (int i = 0; i < 45; i++) {
@@ -91,6 +102,8 @@ public class ManageBackPointPage extends MultipleGuiPageBase implements BackAble
         ItemStack returnPage = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageBackPointPage.back");
         this.inventory.setItem(49, returnPage);
 
+        ItemStack searchByWorldName = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageBackPointPage.searchByWorldName");
+        this.inventory.setItem(47, searchByWorldName);
 
         if (pageIndex > 0) {
             ItemStack previous = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageBackPointPage.previousPage");
