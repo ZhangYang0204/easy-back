@@ -51,7 +51,7 @@ message:
 
     notEnoughVault:
       - "&c&lMoney not enough"
-    tooFastWhen:
+    tooFast:
       - "&c&lTwo back operation are too fast."
 
     worldBlackListWhenTeleportBackPoint:

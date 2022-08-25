@@ -51,7 +51,7 @@ message:
 
     notEnoughVault:
       - "&c&l钱不够，不能申请传送过来。"
-    tooFastWhen:
+    tooFast:
       - "&c&l两次返回速度太快了。"
 
     worldBlackList:

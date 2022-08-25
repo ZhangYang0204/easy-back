@@ -54,7 +54,7 @@ public class PlayerClickManageBackPointPageTeleportBackPoint implements Listener
             if (gamer.getLastBackTime() != null && System.currentTimeMillis() - gamer.getLastBackTime()
                     < perm * 1000L) {
 
-                List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.tooFastWhen");
+                List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.tooFast");
                 MessageUtil.sendMessageTo(viewer, list);
                 return;
             }
